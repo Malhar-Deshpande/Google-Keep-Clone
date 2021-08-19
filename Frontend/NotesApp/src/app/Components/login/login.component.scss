@@ -1,0 +1,39 @@
+@import "../../../Custom-Styles/_colors.scss";
+.example-card {
+    max-width: 20rem;
+    margin: auto;
+    top: 25%;
+  background-color: white;
+  }
+
+  .background-image{
+    background-image: url(../../../assets/dark-paths.png);
+    width: 100%;
+    height: 100%;
+}
+
+  button{
+    width: 14rem;
+    background-color: $primary-color;
+  }
+:host ::ng-deep{
+
+  .mat-card-header-text{
+    margin-left: 0;
+  }
+  .mat-form-field-appearance-outline .mat-form-field-subscript-wrapper{
+    padding: 0;
+    margin-top: 0.2rem;
+  }
+
+  .mat-card-header-text{
+    margin: auto;
+    text-align: center;
+  }
+
+  .mat-card>:last-child:not(.mat-card-footer), .mat-card-content>:last-child:not(.mat-card-footer) {
+    margin-bottom: 0;
+    text-align: center;
+}
+}  
+  

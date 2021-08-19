@@ -1,0 +1,33 @@
+<div class="background-image" style="z-index: 500;">
+<mat-card class="example-card" style="z-index: 1000;">
+    <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Enter Your Email" name="email" ngModel #email="ngModel"
+                    pattern="^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$" type="email" required>
+                <mat-icon matSuffix>email</mat-icon>
+                <mat-error *ngIf="email!.touched && email!.errors?.required">Email is required</mat-error>
+                <mat-error *ngIf="email!.touched && email!.errors?.pattern">Email not valid</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Enter Password" name="password" ngModel #password="ngModel" required
+                    pattern="(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&^+=]).*$" [type]="hide ? 'password':'text'" minlength="8">
+                <mat-icon matSuffix (click)="hide = !hide ">{{hide ? 'visibility_off' : 'remove_red_eye'}}</mat-icon>
+                <mat-error *ngIf="password!.touched && password!.errors?.required">Password is required</mat-error>
+                <mat-error *ngIf="password!.touched && password!.errors?.pattern">Password not upto standards
+                </mat-error>
+            </mat-form-field>
+            <mat-card-actions>
+                <button style="font-size: medium;" mat-raised-button matRipple [matRippleCentered] ="true"  [matRippleRadius] = "10" type="submit" [disabled]="loginForm.invalid">Login</button>
+            </mat-card-actions>
+            <small>Dont have an account? SignUp <a style="text-decoration: none;color: blue;" routerLink="/signup">Here</a></small>
+        </form>
+    </mat-card-content>
+</mat-card>
+</div>

@@ -1,0 +1,77 @@
+<mat-toolbar>
+    <button mat-icon-button class="example-icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <img src="../../../assets/keep-logo.png" alt="Keep-logo">
+    <span>Keep</span>
+    <span class="search">
+        <form action="#">
+            <button mat-icon-button>
+                <mat-icon>search</mat-icon>
+            </button>
+            <input type="text" name="search-bar" id="search-bar" placeholder="Search">
+        </form>
+    </span>
+    <span>
+        <button mat-icon-button>
+            <mat-icon>refresh</mat-icon>
+        </button>
+        <button mat-icon-button>
+            <img src="../../../assets/window_black_24dp.svg" alt="grid-view">
+        </button>
+        <button mat-icon-button>
+            <mat-icon>settings</mat-icon>
+        </button>
+    </span>
+
+    <!-- This is the 6th child in SCSS. If changed please change accordingly -->
+    <span>
+        <button mat-icon-button>
+            <mat-icon>apps</mat-icon>
+        </button>
+        <button mat-icon-button>
+            <span>M</span>
+        </button>
+    </span>
+</mat-toolbar>
+<mat-divider></mat-divider>
+
+<div class="main-page">
+
+    <section class="example-container">
+        <div>
+            <span>Notes</span>
+            <span>
+                <mat-icon>lightbulb_outline</mat-icon>
+            </span>
+        </div>
+        <div>
+            <span>Reminders</span>
+            <span>
+                <mat-icon>notifications_none</mat-icon>
+            </span>
+        </div>
+        <div>
+            <span>Edit Labels</span>
+            <span>
+                <mat-icon class="material-icons material-icons-outlined">edit_none</mat-icon>
+            </span>
+        </div>
+        <div>
+            <span>Archive</span>
+            <span>
+                <mat-icon class="material-icons material-icons-outlined">archive_outline</mat-icon>
+            </span>
+        </div>
+        <div>
+            <span>Delete</span>
+            <span>
+                <mat-icon>delete_outline</mat-icon>
+            </span>
+        </div>
+    </section>
+
+    <div class="notes">
+
+    </div>
+</div>
