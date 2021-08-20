@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
-
+@import "../../../Custom-Styles/_mixins.scss";
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+$font-family: "Roboto", sans-serif;
 mat-toolbar {
   background-color: white;
   button + img {
@@ -23,17 +25,7 @@ mat-toolbar {
       flex-wrap: nowrap;
     }
     input {
-      width: 40rem;
-      height: 3rem;
-      border-radius: 0.4rem;
-      border-style: none;
-      background-color: aliceblue;
-      padding-right: 2rem;
-      padding-left: 1rem;
-      font-size: medium;
-      font-family: "Roboto", sans-serif;
-      border-bottom-left-radius: unset;
-      border-top-left-radius: initial;
+      @include input-style();
     }
 
     input:focus {
@@ -71,16 +63,127 @@ mat-toolbar {
   flex-direction: row;
   flex-wrap: nowrap;
   height: 100vh;
+  font-family: $font-family;
 
-  .notes {
-    background-color: aqua;
-    flex: 80%;
-  }
-
-  .example-container {
+  .side-container {
     flex: 20%;
     height: 90%;
     display: flex;
     flex-direction: column;
+    z-index: 10;
+    transform: translateX(-80%);
+    transition-duration: 0.2s;
+    cursor: pointer;
+    div:first-child {
+      margin-top: 1rem;
+    }
+    div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      border-top-right-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+      max-width: 20rem;
+    }
+
+    .side-heading {
+      margin-left: 2rem;
+      font-size: small;
+    }
+
+    span + span {
+      background-color: #feefc3;
+      height: 3rem;
+      width: 3rem;
+      border-radius: 1.5rem;
+      text-align: center;
+      mat-icon {
+        text-align: center;
+        padding-top: 0.6rem;
+      }
+    }
+  }
+
+  .side-container:hover {
+    transform: translateX(0%);
+    transition-duration: 0.2s;
+    max-width: 20rem;
+    z-index: 10;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    div {
+      background-color: #feefc3;
+      justify-content: end;
+      span + span {
+        order: 1;
+      }
+      .side-heading {
+        order: 2;
+        font-weight: 500;
+      }
+    }
+  }
+
+  // .notes {
+  //   // background-color: aqua;
+  //   flex: 80%;
+
+  //   section {
+  //     margin-top: 1rem;
+  //     max-width: 40rem !important;
+  //     .create-note {
+  //       box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+  //         rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  //     }
+  //     .create-note div:first-child {
+  //       display: flex;
+  //       flex-direction: row;
+  //       align-items: center;
+
+  //       input {
+  //         @include input-style(2rem);
+  //         background-color: #ffffff;
+  //       }
+  //     }
+
+  //     input {
+  //       @include input-style(2rem);
+  //       background-color: #ffffff;
+  //       max-width: 40rem !important;
+  //     }
+  //   }
+  // }
+
+  .notes {
+    flex: 80%;
+
+    section {
+      margin-top: 1rem;
+      .create-note {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+          rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        max-width: 38rem;
+        margin: auto;
+        div:first-child {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          input {
+            @include input-style(2rem);
+            background-color: #ffffff;
+          }
+        }
+        input {
+          @include input-style(2rem);
+          background-color: #ffffff;
+          box-sizing: border-box;
+          padding-right: 0;
+          max-width: 38rem;
+        }
+      }
+    }
   }
 }

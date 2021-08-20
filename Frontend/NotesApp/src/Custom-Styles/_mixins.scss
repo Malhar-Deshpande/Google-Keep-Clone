@@ -1,0 +1,13 @@
+@mixin input-style($height: 3rem) {
+  width: 40rem;
+  height: $height;
+  border-radius: 0.4rem;
+  border-style: none;
+  background-color: aliceblue;
+  padding-right: 2rem;
+  padding-left: 1rem;
+  font-size: medium;
+  font-family: "Roboto", sans-serif;
+  border-bottom-left-radius: unset;
+  border-top-left-radius: initial;
+}
