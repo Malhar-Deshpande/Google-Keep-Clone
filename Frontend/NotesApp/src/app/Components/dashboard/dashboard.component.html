@@ -77,13 +77,13 @@
                 <div class="create-note" #note>
                     <div #noteTitle>
                         <input type="text" placeholder="Title" formControlName="noteTitle">
-                        <img (click)="isPinned = !isPinned" style="cursor: pointer;"
+                        <img (click)="isPinned = !isPinned"
                             [src]="isPinned? '../../../assets/thumb-tack-pinned.svg' : '../../../assets/thumb-tack.svg'"
                             alt="Pin the note">
                     </div>
                     <input id="note-text" type="text" placeholder="Take a note..." (click)="showTitle()"
                         formControlName="noteContent" autofocus (keypress)="showTitle()">
-                    <div class="create-note-actions" #createNoteAction>
+                    <div class="create-note-actions" #noteActions>
                         <span>
                             <mat-icon class="material-icons-outlined">add_alert</mat-icon>
                             <mat-icon class="material-icons-outlined">person_add</mat-icon>

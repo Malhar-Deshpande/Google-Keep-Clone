@@ -31,11 +31,11 @@ Note.init(
     noteTitle: {
       type: DataTypes.STRING(128),
       unique: true,
-      allowNull: false
+      allowNull: true
     },
     noteContent: {
       type: DataTypes.STRING(1000),
-      allowNull: false
+      allowNull: true
     },
     isPinned: {
       type: DataTypes.BOOLEAN,

@@ -7,7 +7,8 @@ import { MaterialModule } from '../material/material.module';
 import { DashboardComponent } from 'src/app/Components/dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from 'src/app/Services/user.service';
-import {  RxReactiveFormsModule } from "@rxweb/reactive-form-validators"
+import { RxReactiveFormsModule } from "@rxweb/reactive-form-validators"
+import { NotesService } from 'src/app/Services/notes.service';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import {  RxReactiveFormsModule } from "@rxweb/reactive-form-validators"
     ReactiveFormsModule,
     RxReactiveFormsModule
   ],
-  providers:[UserService],
-  exports:[LoginComponent, SignUpComponent, DashboardComponent]
+  providers: [UserService, NotesService],
+  exports: [LoginComponent, SignUpComponent, DashboardComponent]
 })
 export class UserModule { }
