@@ -1,5 +1,5 @@
-@mixin input-style($height: 3rem) {
-  width: 40rem;
+@mixin input-style($height: 3rem, $width: 40rem) {
+  width: $width;
   height: $height;
   border-radius: 0.4rem;
   border-style: none;

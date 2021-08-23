@@ -72,14 +72,35 @@
     </section>
 
     <div class="notes">
-        <section>
-            <div class="create-note">
-                <div>
-                    <input type="text" placeholder="Title">
-                    <mat-icon class="material-icons-outlined">push_pin</mat-icon>
+        <form [formGroup]="noteForm" (ngSubmit)="submitNote()">
+            <section>
+                <div class="create-note" #note>
+                    <div #noteTitle>
+                        <input type="text" placeholder="Title" formControlName="noteTitle">
+                        <img (click)="isPinned = !isPinned" style="cursor: pointer;"
+                            [src]="isPinned? '../../../assets/thumb-tack-pinned.svg' : '../../../assets/thumb-tack.svg'"
+                            alt="Pin the note">
+                    </div>
+                    <input id="note-text" type="text" placeholder="Take a note..." (click)="showTitle()"
+                        formControlName="noteContent" autofocus (keypress)="showTitle()">
+                    <div class="create-note-actions" #createNoteAction>
+                        <span>
+                            <mat-icon class="material-icons-outlined">add_alert</mat-icon>
+                            <mat-icon class="material-icons-outlined">person_add</mat-icon>
+                            <mat-icon class="material-icons-outlined">color_lens</mat-icon>
+                            <mat-icon class="material-icons-outlined">image</mat-icon>
+                            <mat-icon class="material-icons-outlined">archive</mat-icon>
+                            <mat-icon class="material-icons-outlined">more_vert</mat-icon>
+                            <mat-icon class="material-icons-outlined">undo</mat-icon>
+                            <mat-icon class="material-icons-outlined">redo</mat-icon>
+                        </span>
+                        <span></span>
+                        <span>
+                            <button (click)="hideTitle()">Close</button>
+                        </span>
+                    </div>
                 </div>
-                <input type="text" placeholder="Take a note...">
-            </div>
-        </section>
+            </section>
+        </form>
     </div>
 </div>

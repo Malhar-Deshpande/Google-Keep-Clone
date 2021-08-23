@@ -126,62 +126,85 @@ mat-toolbar {
     }
   }
 
-  // .notes {
-  //   // background-color: aqua;
-  //   flex: 80%;
-
-  //   section {
-  //     margin-top: 1rem;
-  //     max-width: 40rem !important;
-  //     .create-note {
-  //       box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
-  //         rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  //     }
-  //     .create-note div:first-child {
-  //       display: flex;
-  //       flex-direction: row;
-  //       align-items: center;
-
-  //       input {
-  //         @include input-style(2rem);
-  //         background-color: #ffffff;
-  //       }
-  //     }
-
-  //     input {
-  //       @include input-style(2rem);
-  //       background-color: #ffffff;
-  //       max-width: 40rem !important;
-  //     }
-  //   }
-  // }
-
   .notes {
     flex: 80%;
 
     section {
       margin-top: 1rem;
+      font-family: $font-family;
+      input:focus {
+        outline: none;
+      }
+
       .create-note {
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
-          rgba(0, 0, 0, 0.23) 0px 3px 6px;
-        max-width: 38rem;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 2px 0px,
+          rgba(14, 30, 37, 0.32) 0px 2px 8px 0px;
+        max-width: 35rem; // If changes please change below max-width also
         margin: auto;
+        border-radius: 0.6rem;
+
         div:first-child {
           display: flex;
           flex-direction: row;
           align-items: center;
-
+          padding-right: 1rem;
+          padding-top: 0.5rem;
+          display: none;
           input {
-            @include input-style(2rem);
+            @include input-style(2rem, 35rem);
             background-color: #ffffff;
+            font-weight: 600;
           }
         }
         input {
-          @include input-style(2rem);
+          @include input-style(2rem, 35rem);
           background-color: #ffffff;
           box-sizing: border-box;
           padding-right: 0;
-          max-width: 38rem;
+          max-width: 35rem; // If changes please change above max-width also
+          margin-top: 0.5rem;
+          font-size: 14px;
+          margin-bottom: 0.5rem;
+          border-bottom-left-radius: 0.4rem;
+        }
+
+        .create-note-actions {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          align-items: center;
+          margin-top: 1rem;
+          padding-bottom: 0.5rem;
+          display: none;
+          span {
+            flex: 60%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            mat-icon {
+              font-size: 1rem;
+              text-align: center;
+            }
+          }
+          span + span {
+            flex: 20%;
+          }
+          span + span + span {
+            flex: 20%;
+            align-self: flex-start;
+            button {
+              cursor: pointer;
+              padding: 0;
+              margin: 0;
+              outline: none;
+              background-color: #ffffff;
+              border: none;
+              font-size: 0.8rem;
+              font-weight: 600;
+              padding-right: 1rem;
+              font-family: $font-family;
+            }
+          }
         }
       }
     }
