@@ -57,7 +57,6 @@ export class DashboardComponent implements OnInit {
           this.createNote();
           this.notesService.onCreateNote(this.newNote).subscribe(response => {
             console.log("Value to be sent ", this.newNote);
-            this.noteForm.reset();
             this.newNote = this.notesService.initializeNote;
           })
 
@@ -68,6 +67,7 @@ export class DashboardComponent implements OnInit {
       }
       this.hideTitle();
       this.isPinned = false;
+      this.noteForm.reset();
 
     }
   }

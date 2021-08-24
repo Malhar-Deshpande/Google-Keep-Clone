@@ -132,7 +132,8 @@ mat-toolbar {
     section {
       margin-top: 1rem;
       font-family: $font-family;
-      input:focus {
+      input:focus,
+      textarea:focus {
         outline: none;
       }
 
@@ -141,7 +142,7 @@ mat-toolbar {
           rgba(14, 30, 37, 0.32) 0px 2px 8px 0px;
         max-width: 35rem; // If changes please change below max-width also
         margin: auto;
-        border-radius: 0.6rem;
+        border-radius: 0.2rem;
 
         div:first-child {
           display: flex;
@@ -153,7 +154,7 @@ mat-toolbar {
           input {
             @include input-style(2rem, 35rem);
             background-color: #ffffff;
-            font-weight: 600;
+            font-weight: 500;
           }
 
           img {
@@ -171,7 +172,7 @@ mat-toolbar {
           @include input-style(2rem, 35rem);
           background-color: #ffffff;
           box-sizing: border-box;
-          padding-right: 0;
+          padding-right: 1rem;
           max-width: 35rem; // If changes please change above max-width also
           margin-top: 0.5rem;
           font-size: 14px;
@@ -192,6 +193,7 @@ mat-toolbar {
             display: flex;
             flex-direction: row;
             justify-content: space-around;
+            align-self: flex-end;
             mat-icon {
               font-size: 1rem;
               text-align: center;
@@ -212,16 +214,7 @@ mat-toolbar {
               border: none;
               font-size: 0.8rem;
               font-weight: 600;
-              padding-right: 1rem;
               font-family: $font-family;
-            }
-          }
-
-          span + span + span:hover {
-            background-color: #e9eaea;
-
-            button {
-              background-color: #e9eaea;
             }
           }
         }
