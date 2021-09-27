@@ -81,8 +81,10 @@
                             [src]="isPinned? '../../../assets/thumb-tack-pinned.svg' : '../../../assets/thumb-tack.svg'"
                             alt="Pin the note">
                     </div>
-                    <input id="note-text" type="text" placeholder="Take a note..." (click)="showTitle()"
-                        formControlName="noteContent" autofocus (keypress)="showTitle()">
+                    <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+                        cdkAutosizeMaxRows="10" id="note-text" type="text" placeholder="Take a note..."
+                        (click)="showTitle()" formControlName="noteContent" autofocus
+                        (keypress)="showTitle()"></textarea>
                     <div class="create-note-actions" #noteActions>
                         <span>
                             <mat-icon class="material-icons-outlined">add_alert</mat-icon>
@@ -102,5 +104,7 @@
                 </div>
             </section>
         </form>
+
+        <app-all-notes></app-all-notes>
     </div>
 </div>

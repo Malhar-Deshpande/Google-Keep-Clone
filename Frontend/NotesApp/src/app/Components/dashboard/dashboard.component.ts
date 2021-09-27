@@ -1,8 +1,12 @@
+import { CdkTextareaAutosize } from '@angular/cdk/text-field';
 import { HostListener, Input } from '@angular/core';
+import { NgZone } from '@angular/core';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ICreateNote } from 'src/app/Models/ICreateNote';
 import { NotesService } from 'src/app/Services/notes.service';
+import { take } from 'rxjs/operators';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -14,11 +18,13 @@ export class DashboardComponent implements OnInit {
   @ViewChild('note') note!: ElementRef;
   @ViewChild('noteActions') noteActions!: ElementRef;
   @ViewChild('noteTitle') noteTitle!: ElementRef;
+  @ViewChild('autosize') autosize!: CdkTextareaAutosize;
+
   newNote: ICreateNote = this.notesService.initializeNote;
   userId = Number(sessionStorage.getItem('userId'));
   backgroundColor: string = 'white';
   label: string = '';
-  constructor(private fb: FormBuilder, private notesService: NotesService) { }
+  constructor(private fb: FormBuilder, private notesService: NotesService, private _ngZone: NgZone) { }
 
   ngOnInit(): void {
   }
@@ -44,6 +50,7 @@ export class DashboardComponent implements OnInit {
   hideTitle() {
     this.noteActions.nativeElement.style.display = 'none'
     this.noteTitle.nativeElement.style.display = 'none'
+    this.noteForm.reset();
 
   }
 
@@ -59,10 +66,10 @@ export class DashboardComponent implements OnInit {
             console.log("Value to be sent ", this.newNote);
             this.newNote = this.notesService.initializeNote;
           })
-
+          console.log("Value to be sent ", this.newNote);
         }
       }
-      if (this.getnoteContent?.value == '' || this.getnoteTitle?.value == '') {
+      if (this.getnoteContent?.value !== null || this.getnoteTitle?.value !== null) {
         console.log("Note Not Created");
       }
       this.hideTitle();
@@ -73,8 +80,7 @@ export class DashboardComponent implements OnInit {
   }
 
   submitNote() {
-    console.log("Note Value")
-    console.log(this.noteForm.value)
+    this.onClick;
   }
 
   createNote() {
@@ -87,4 +93,12 @@ export class DashboardComponent implements OnInit {
     this.newNote.isDeleted = false;
     this.newNote.createdAt = new Date();
   }
+
+  triggerResize() {
+    // Wait for changes to be applied, then trigger textarea resize.
+    this._ngZone.onStable.pipe(take(1))
+      .subscribe(() => this.autosize.resizeToFitContent(true));
+  }
 }
+
+

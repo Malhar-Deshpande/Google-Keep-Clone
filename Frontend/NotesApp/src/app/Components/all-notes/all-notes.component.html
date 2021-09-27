@@ -1,0 +1,24 @@
+<p>all-notes works!</p>
+<div class="notes-wrapper">
+    <div class="card" *ngFor="let note of allNotes">
+        <span>
+            <img src="../../../assets/thumb-tack.svg" alt="thumb-tack" class="float-end">
+        </span>
+        <div class="card-body">
+            <h5 class="card-title">{{note.noteTitle}}</h5>
+            <p class="card-text">{{note.noteContent}}</p>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <span>
+        <img src="../../../assets/thumb-tack.svg" alt="thumb-tack" class="float-end">
+    </span>
+    <!-- <img src="../../../assets/dark-paths.png" class="card-img-top" alt="..."> -->
+    <div class="card-body" style="background-color: aqua;">
+        <h5 class="card-title">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content Some quick example text to Some quick example text to Some quick example text to Some quick example
+            text to Some quick example text to .</p>
+    </div>
+</div>

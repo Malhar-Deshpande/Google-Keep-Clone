@@ -9,7 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from 'src/app/Services/user.service';
 import { RxReactiveFormsModule } from "@rxweb/reactive-form-validators"
 import { NotesService } from 'src/app/Services/notes.service';
-
+import { TextFieldModule } from '@angular/cdk/text-field';
+import { NotesModule } from '../notes/notes.module';
 
 @NgModule({
   declarations: [LoginComponent, SignUpComponent, DashboardComponent],
@@ -19,7 +20,9 @@ import { NotesService } from 'src/app/Services/notes.service';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    RxReactiveFormsModule
+    RxReactiveFormsModule,
+    TextFieldModule,
+    NotesModule
   ],
   providers: [UserService, NotesService],
   exports: [LoginComponent, SignUpComponent, DashboardComponent]

@@ -16,7 +16,9 @@ export class UserHelper {
         password: loginCredentials.password
       }
     });
+    console.log("user", user);
     return user;
+
   }
 
   async allUsernames() {

@@ -7,10 +7,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './Modules/material/material.module';
 import { UserModule } from './Modules/user/user.module';
 import { HttpClientModule } from '@angular/common/http';
+import { NotesModule } from './Modules/notes/notes.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MaterialModule,
     UserModule,
-    HttpClientModule
+    HttpClientModule,
+    NotesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

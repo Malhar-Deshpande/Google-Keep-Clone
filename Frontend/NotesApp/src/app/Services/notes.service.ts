@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ICreateNote } from '../Models/ICreateNote';
+import { INoteResponse } from '../Models/INoteResponse';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,5 +21,15 @@ export class NotesService {
     };
 
     return this.httpClient.post(this.url + 'createnote', noteToSend, httpOptions)
+  }
+
+  OnGetAllNotes() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        token: sessionStorage['token']
+      })
+    };
+
+    return this.httpClient.get<INoteResponse>(this.url + 'getAllNotes', httpOptions)
   }
 }

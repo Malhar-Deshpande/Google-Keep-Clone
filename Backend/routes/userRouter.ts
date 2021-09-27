@@ -50,11 +50,22 @@ export class UserRouter {
       const loggedInUser = await this.UserHelper.loginUser(loginCredentials);
       console.log("LoggedIn User is ", loggedInUser);
       const token = jwt.sign("loggedInUser", SECRET.secret);
-      return response.status(200).json({
-        status: "success",
-        data: loggedInUser,
-        token: token
-      });
+      if (loggedInUser != null) {
+        return response.status(200).json({
+          status: "success",
+          data: loggedInUser,
+          token: token
+        });
+      }
+
+      else {
+        return response.status(200).json({
+          status: "failure",
+          data: loggedInUser,
+          token: token
+        });
+      }
+
     } catch (error) {
       return response.status(400).json({
         status: "failed",
